@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:plantapp/constants.dart';
 import 'package:plantapp/screens/details/components/icon_card.dart';
+import 'package:plantapp/screens/details/components/image_and_icons.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
@@ -12,83 +13,62 @@ class Body extends StatelessWidget {
       child: Column(
         children: [
           ImageAndIcons(size: size),
+          TitleAndPrice(
+            title: "Angelica",
+            country: "Russia",
+            price: 440,
+          ),
         ],
       ),
     );
   }
 }
 
-class ImageAndIcons extends StatelessWidget {
-  const ImageAndIcons({
-    super.key,
-    required this.size,
+class TitleAndPrice extends StatelessWidget {
+  const TitleAndPrice({
+    super.key, required this.title, required this.country, required this.price,
   });
+  
+  final String title, country;
+  final int price;
 
-  final Size size;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: kDefaultPadding * 3),
-      child: SizedBox(
-        height: size.height * 0.8,
-        child: Row(
-          children: [
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  vertical: kDefaultPadding * 3,
-                ),
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: IconButton(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: kDefaultPadding,
-                        ),
-                        icon: Icon(Icons.arrow_back_outlined),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                      ),
-                    ),
-                    const Spacer(),
-                    IconCard(icon: Icons.wb_sunny_outlined, size: 50.0, color: kPrimaryColor),
-                    IconCard(icon: Icons.thermostat, size: 50.0, color: kPrimaryColor),
-                    IconCard(icon: Icons.water_drop_outlined, size: 50.0, color: kPrimaryColor),
-                    IconCard(icon: Icons.air, size: 50.0, color: kPrimaryColor),
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              height: size.height * 0.8,
-              width: size.width * 0.75,
-              decoration: BoxDecoration(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(63),
-                  bottomLeft: Radius.circular(63),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    offset: const Offset(0, 10),
-                    blurRadius: 60,
-                    color: kPrimaryColor.withOpacity(0.29),
+      padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+      child: Row(
+        children: [
+          RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: "$title\n",
+                  style: Theme.of(
+                    context,
+                  ).textTheme.headlineMedium?.copyWith(
+                    color: kTextColor,
+                    fontWeight: FontWeight.bold,
                   ),
-                ],
-                image: const DecorationImage(
-                  alignment: Alignment.centerLeft,
-                  fit: BoxFit.cover,
-                  image: AssetImage("assets/images/tanaman 1.jpg"),
                 ),
-              ),
+                TextSpan(
+                  text: country,
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: kPrimaryColor,
+                    fontWeight: FontWeight.w300,
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+          Spacer(),
+          Text("\$$price", style: Theme.of(context)
+          .textTheme
+          .headlineSmall?.copyWith(color: kPrimaryColor),
+          ),
+        ],
       ),
     );
   }
 }
-
-
