@@ -12,7 +12,7 @@ class RecomendsPlant extends StatelessWidget {
       child: Row(
         children: [
           RecomendPlantCard(
-            image: "assets/images/tanaman 1.jpg",
+            image: "assets/images/tanaman 0.jpg",
             title: "Samantha",
             country: "Russia",
             price: 440,
@@ -26,10 +26,10 @@ class RecomendsPlant extends StatelessWidget {
             },
           ),
           RecomendPlantCard(
-            image: "assets/images/tanaman 1.jpg",
-            title: "Samantha",
-            country: "Russia",
-            price: 440,
+            image: "assets/images/tanaman 2.jpg",
+            title: "Bonsai",
+            country: "Brazil",
+            price: 500,
             press: () {
               Navigator.push(
                 context,
@@ -40,10 +40,10 @@ class RecomendsPlant extends StatelessWidget {
             },
           ),
           RecomendPlantCard(
-            image: "assets/images/tanaman 1.jpg",
-            title: "Samantha",
-            country: "Russia",
-            price: 440,
+            image: "assets/images/tanaman 3.jpg",
+            title: "kaktus",
+            country: "Mesir",
+            price: 300,
             press: () {
               Navigator.push(
                 context,
@@ -54,10 +54,10 @@ class RecomendsPlant extends StatelessWidget {
             },
           ),
           RecomendPlantCard(
-            image: "assets/images/tanaman 1.jpg",
-            title: "Samantha",
-            country: "Russia",
-            price: 440,
+            image: "assets/images/tanaman 4.jpg",
+            title: "kejora",
+            country: "Korea",
+            price: 650,
             press: () {
               Navigator.push(
                 context,
